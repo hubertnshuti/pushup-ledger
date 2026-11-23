@@ -4,3 +4,47 @@ analyzer:
   exclude:
     - build/**
     - android/**
+  language:
+    # Forbids silently treating a dynamic value as a specific type.
+    strict-casts: true
+    # Reports code where Dart cannot infer a type and would fall back to dynamic.
+    strict-inference: true
+    # Requires type arguments: List<int>, never a bare List.
+    strict-raw-types: true
+
+linter:
+  rules:
+    # Immutability: values that never change say so.
+    prefer_final_locals: true # Local variables that are never reassigned are final.
+    prefer_final_in_for_each: true # Loop variables are final too.
+    parameter_assignments: true # Function parameters are never overwritten.
+
+    # Const: identical widgets and values are reused instead of rebuilt.
+    prefer_const_constructors: true # Call constructors with const when possible.
+    prefer_const_declarations: true # Compile-time values are const, not final.
+    prefer_const_literals_to_create_immutables: true # Const lists in const widgets.
+
+    # Types: every public API states what it accepts and returns.
+    always_declare_return_types: true # Functions name their return type.
+    type_annotate_public_apis: true # Public members have explicit types.
+    avoid_dynamic_calls: true # No method calls on a value of unknown type.
+    cast_nullable_to_non_nullable: true # A nullable value is not cast to non-null.
+
+    # Async: a Future is never forgotten by accident.
+    unawaited_futures: true # Futures in async functions are awaited or marked.
+    cancel_subscriptions: true # Stream subscriptions are cancelled.
+    close_sinks: true # Stream controllers and other sinks are closed.
+
+    # Correctness: common sources of subtle bugs.
+    avoid_print: true # Production code does not write to the console.
+    test_types_in_equals: true # operator == checks the other object's type.
+    only_throw_errors: true # Only Exception and Error objects are thrown.
+    literal_only_boolean_expressions: true # Conditions are not always true/false.
+    no_adjacent_strings_in_list: true # A missing comma cannot merge two strings.
+
+    # Consistency: one style across the codebase.
+    prefer_single_quotes: true # Strings use single quotes.
+    directives_ordering: true # Imports are grouped and sorted.
+    always_use_package_imports: true # Imports inside lib/ use package: paths.
+    unnecessary_lambdas: true # Pass a function directly instead of wrapping it.
+    unnecessary_parenthesis: true # Remove parentheses that do nothing.
