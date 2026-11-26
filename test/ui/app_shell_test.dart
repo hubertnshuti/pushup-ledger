@@ -49,4 +49,15 @@ void main() {
     expect(theme.scaffoldBackgroundColor, AppColors.cream);
     expect(theme.colorScheme.surfaceTint, AppColors.transparent);
   });
+
+  testWidgets('screen titles are drawn in ink', (tester) async {
+    await pumpApp(tester);
+    final title = tester.widget<RichText>(
+      find
+          .descendant(of: find.byType(AppBar), matching: find.byType(RichText))
+          .first,
+    );
+
+    expect(title.text.style?.color, AppColors.ink);
+  });
 }

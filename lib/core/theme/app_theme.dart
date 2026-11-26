@@ -59,14 +59,14 @@ ThemeData buildAppTheme() {
       thickness: AppSizes.border,
       space: AppSizes.border,
     ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: AppColors.cream,
       foregroundColor: AppColors.ink,
       surfaceTintColor: AppColors.transparent,
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: false,
-      titleTextStyle: AppTypography.title,
+      titleTextStyle: AppTypography.title.copyWith(color: AppColors.ink),
     ),
     cardTheme: CardThemeData(
       color: AppColors.surface,
