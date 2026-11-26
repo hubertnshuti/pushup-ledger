@@ -90,6 +90,25 @@ void main() {
     );
   });
 
+  test('no Monday warning when last week itself was clean', () {
+    final plan = planNotifications(
+      startDate: DateTime(2026, 11, 16),
+      entries: [
+        for (var day = 23; day <= 29; day++)
+          entry(day, DateTime(2026, 11, day, 7), 50),
+      ],
+      now: DateTime(2026, 11, 29, 12),
+    );
+    expect(
+      plan.any(
+        (item) =>
+            item.at == DateTime(2026, 11, 30, 6) &&
+            item.body == AppCopy.notifyCarried,
+      ),
+      isFalse,
+    );
+  });
+
   test('a future start date plans nothing before it', () {
     final now = DateTime(2026, 11, 25, 12);
     final plan = planNotifications(

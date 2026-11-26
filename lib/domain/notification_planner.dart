@@ -3,6 +3,7 @@ import 'package:pushup_ledger/core/dates.dart';
 import 'package:pushup_ledger/domain/ledger.dart';
 import 'package:pushup_ledger/domain/models/ledger_snapshot.dart';
 import 'package:pushup_ledger/domain/models/log_entry.dart';
+import 'package:pushup_ledger/domain/models/week_status.dart';
 
 /// Days ahead that reminders are scheduled.
 const int notificationHorizonDays = 14;
@@ -100,9 +101,16 @@ List<_Slot> _slotsFor(DateTime day, LedgerSnapshot snapshot) {
           warnings,
           AppCopy.notifyWeekCloses(endOfDay(day).difference(at(hour)), open),
         ),
-    if (day.weekday == DateTime.monday && snapshot.carriedOwed > 0)
+    if (day.weekday == DateTime.monday && _lastWeekFailed(day, snapshot))
       _Slot(at(6), warnings, AppCopy.notifyCarried),
   ];
+}
+
+bool _lastWeekFailed(DateTime monday, LedgerSnapshot snapshot) {
+  final lastWeek = addDays(monday, -DateTime.daysPerWeek);
+  return snapshot.weeks.any(
+    (week) => week.weekStart == lastWeek && week.status == WeekStatus.failed,
+  );
 }
 
 class _Slot {
