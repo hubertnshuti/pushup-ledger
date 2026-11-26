@@ -16,7 +16,7 @@ abstract final class AppSpacing {
 abstract final class AppRadii {
   static const double card = 16;
   static const double sheet = 24;
-  static const double gridCell = 3;
+  static const double gridCell = 5;
 }
 
 /// Fixed component dimensions.
@@ -31,8 +31,9 @@ abstract final class AppSizes {
   static const double progressBar = 8;
   static const double dot = 2;
   static const double ringStroke = 1.5;
-  static const double gridCell = 14;
-  static const double gridGap = 3;
+  static const double gridCell = 24;
+  static const double gridGap = 4;
+  static const double gridDot = 4;
 }
 
 /// Animation durations.

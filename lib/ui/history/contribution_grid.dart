@@ -117,7 +117,7 @@ class _Swatch extends StatelessWidget {
       ),
       child: hasDot
           ? const SizedBox.square(
-              dimension: AppSizes.dot,
+              dimension: AppSizes.gridDot,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: AppColors.ink,
