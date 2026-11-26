@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="widget_surface">#FBF8F2</color>
+    <color name="widget_hairline">#DDD5C4</color>
+    <color name="widget_ink">#111111</color>
+    <color name="widget_ink_muted">#5C574F</color>
+    <string name="widget_label">PUSHUP LEDGER</string>
+    <string name="widget_fallback">Open the app to update.</string>
+    <string name="widget_description">Today\'s remaining push-ups and debt.</string>
+</resources>
