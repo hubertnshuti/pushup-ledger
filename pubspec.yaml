@@ -1,5 +1,5 @@
 name: pushup_ledger
-description: "A new Flutter project."
+description: "An offline Android app for building a daily push-up habit."
 publish_to: 'none'
 version: 0.1.0+1
 
